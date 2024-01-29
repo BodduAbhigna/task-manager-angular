@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
+import { Task } from '../task';
 
 @Component({
   selector: 'app-task-list',
@@ -11,32 +12,16 @@ import { RouterLink } from '@angular/router';
   styleUrl: './task-list.component.css'
 })
 export class TaskListComponent {
-  tasks = [
-    {
-      id: Number(Math.floor(Math.random()*100)),
-      title: 'title 1',
-      description: "dummy text dummy text dummy text dummy text"
-    },
-    {
-      id: Number(Math.floor(Math.random()*100)),
-      title: 'title 2',
-      description: "dummy text dummy text dummy text dummy text"
-    },
-    {
-      id: Number(Math.floor(Math.random()*100)),
-      title: 'title 3',
-      description: "dummy text dummy text dummy text dummy text"
-    },
-    {
-      id: Number(Math.floor(Math.random()*100)),
-      title: 'title 4',
-      description: "dummy text dummy text dummy text dummy text"
-    },
-    {
-      id: Number(Math.floor(Math.random()*100)),
-      title: 'title 5',
-      description: "dummy text dummy text dummy text dummy text"
-    }
-  ]
+  tasks: Task[] = JSON.parse(localStorage.getItem('tasks')!);
 
+  removeTask(id: number) {
+    let taskIndex = this.tasks.findIndex(task => task.id === id);
+
+    if (taskIndex !== -1) {
+      this.tasks.splice(taskIndex, 1);
+    }
+
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+
+  }
 }
