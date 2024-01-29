@@ -1,0 +1,20 @@
+mat-card {
+    margin-top: 20px;
+    width: 50dvw;
+    padding: 12px;
+}
+
+mat-card-header {
+    width: 100%;
+    justify-content: center;
+}
+
+mat-form-field {
+    width: 45dvw;
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: end;
+    margin: 0 10px;
+}
