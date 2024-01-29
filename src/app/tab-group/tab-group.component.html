@@ -1,8 +1,11 @@
-<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" animationDuration="1000ms">
-    <mat-tab label="Tasks">
-        <app-task-list />
-    </mat-tab>
-    <mat-tab label="Add Task">
-        <app-add-task />
-    </mat-tab>
-</mat-tab-group>
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    @for(link of links; track link) {
+    <a 
+    mat-tab-link (click)="activeLink = link.name" 
+    [active]="activeLink == link.name" 
+    [routerLink]="link.path">
+        {{link.name}}
+    </a>
+    }
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
