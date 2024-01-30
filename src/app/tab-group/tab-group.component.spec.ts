@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatTabsModule } from '@angular/material/tabs';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from '../auth.service';
 import { TabGroupComponent } from './tab-group.component';
 
 describe('TabGroupComponent', () => {
@@ -8,10 +10,14 @@ describe('TabGroupComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TabGroupComponent]
+      imports: [
+        MatTabsModule,
+        RouterTestingModule
+      ],
+      providers: [AuthService]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(TabGroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

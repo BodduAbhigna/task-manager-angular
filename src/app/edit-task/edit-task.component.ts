@@ -18,7 +18,7 @@ export class EditTaskComponent implements OnInit {
   taskId: number = -1;
   taskTitle: string = '';
   taskDescription: string = '';
-  tasks: Task[] = JSON.parse(localStorage.getItem('tasks')!);
+  tasks: Task[] = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')!) : [];
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
