@@ -1,27 +1,78 @@
-# TaskManager
+# TaskManager Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+    This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+
+## Table of Contents
+
+    1. Introduction
+    2. Features
+    3. Technologies used
+    4. Development server
+    5. Running unit tests
+    6. Usage
+    7. Documentation
+
+## Introduction 
+    This project is a Task Manager application built with Angular v17.
+    The application allows the user to login/logout (mocked service), see their tasks, add new tasks, edit existing tasks and mark them as done.
+
+## Features
+    - Mocked Login/Logout
+    - Task List
+    - Add Task
+    - Edit Task
+    - Mark Task as Done
+
+## Technologies used
+    - Angular v17.1.1
+    - Angular Material UI v17.1.1
+    - localStorage
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Usage
 
-## Further help
+    - Login view (/login)
+        The user can log in using any email/passowrd combination since it is just a mocked service, but form validation is still present.
+    ![Empty login view](images/image1.png)
+    ![Login view form validation with errors](images/image2.png)
+    ![View password option](images/image3.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    -Add Task (/add-task)
+        The user can add a new task which will appear in the task list view and clear the form after they press the 'ADD TASK' button. 
+        The task gets added to it's localStorage object, if there is no object, it gets created first and then the task is added.
+    ![Empty add task view](images/image4.png)
+
+    -Task List (/)
+        The user can view all their tasks on this view and edit them/mark them as done. 
+        When marked as done, the task gets deleted from it's object in localStorage.
+        The user can swith between the tabs 'task list' and 'add tasks' as well as logout by clicking the logout button which deleted the user from localStorage.
+    ![Task list view with one task](images/image5.png)
+    ![Task list view with multiple tasks](images/image6.png)
+
+    -Edit Task (/edit-task/:id)
+        The user can edit one of their tasks by clicking the 'EDIT TASK' button.
+        The view loads the tasks' title and description, which the user can modify and by clicking 'CONFIRM EDIT', the item gets updated in localStorage and redirects the user to the Task List view.
+    ![Edit task view for one task](images/image7.png)
+    ![Task List view with edited task](images/image8.png)
+
+
+## Documentation
+
+    While making this project I have used the following resources:
+    1. [angular.dev](https://angular.dev/)
+        Specifically these materials:
+        - [tutorial to get to know angular](https://angular.dev/tutorials/first-app)
+        - [routing reference](https://angular.dev/guide/routing)
+        - [ngModule for forms](https://angular.dev/guide/ngmodules)
+        - [dependency injection for injectable services](https://angular.dev/guide/di)
+        - [guards for route protection](https://angular.dev/guide/routing/common-router-tasks#preventing-unauthorized-access)
+    2. [angular material](https://material.angular.io/)
+        For component styling
