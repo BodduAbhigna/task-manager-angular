@@ -11,29 +11,27 @@ import { AuthService } from '../auth.service';
   standalone: true,
   imports: [MatTabsModule, TaskListComponent, AddTaskComponent, RouterLink],
   templateUrl: './tab-group.component.html',
-  styleUrl: './tab-group.component.css'
+  styleUrl: './tab-group.component.css',
 })
 export class TabGroupComponent {
   links = [
     {
-      name: "Tasks",
+      name: 'Tasks',
       path: '',
     },
     {
-      name: "Add Task",
-      path: "add-task",
-    }
-  ]
+      name: 'Add Task',
+      path: 'add-task',
+    },
+  ];
   activeLink = this.links[0].name;
   background: ThemePalette = undefined;
   router = inject(Router);
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
   logout() {
     this.authService.logout();
     this.router.navigate(['login']);
   }
-
 }
-

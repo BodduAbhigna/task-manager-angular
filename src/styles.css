@@ -4,17 +4,23 @@
 
 html,
 body {
-    height: 100%;
-    width: 100dvw;
+  height: 100%;
+  width: 100dvw;
 }
 
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    display: flex;
-    justify-content: center;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
-nav{
-    width: 50dvw;
+nav {
+  width: 50vw;
+}
+
+@media only screen and (max-width: 426px) {
+  nav {
+    width: 95vw;
+  }
 }
